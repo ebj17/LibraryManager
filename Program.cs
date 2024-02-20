@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             //Initialize new FileContactStorage and ContactBook.
-
+            List<String> ContactNumbers = new List<String>();
 
             // Implement user interaction loop here:
             // Display menu options, take user input, and call corresponding ContactBook methods
@@ -19,21 +19,40 @@
                 Console.WriteLine("5. Exit");
                 Console.Write("Select an option: ");
 
-                var option = Console.ReadLine();
+                string option = Console.ReadLine();
 
                 switch (option)
                 {
                     case "1":
-                        // Add contact flow
+
+                        Console.WriteLine("Create a contact: ");
+                        string number = Console.ReadLine();
+                        ContactNumbers.Add(number);
                         break;
                     case "2":
-                        // View contacts flow
+
+                        Console.WriteLine("\nView Contacts: ");
+                        if (ContactNumbers.Count == 0)
+                        {
+                            Console.WriteLine("Contact Library Empty");
+                        }
+                        else
+                        {
+                            foreach (string num in ContactNumbers)
+                        {
+                                Console.WriteLine(num);
+                        }
+
+                        }
                         break;
                     case "3":
                         // Update contact flow
+                        Console.WriteLine("Update Contacts: ");
                         break;
                     case "4":
-                        // Delete contact flow
+                        Console.WriteLine("Delete a Contact: ");
+                        string contacts = Console.ReadLine();
+                        ContactNumbers.Remove(contacts);
                         break;
                     case "5":
                         // Exit application
